@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div>
+  <HeaderComponent :name-props="name"/>
+  <div class="mid-section">
+    <ImageComponent />
+    <DescriptionComponent />
+  </div>
+  
+</div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
+<script setup>
+import DescriptionComponent from "./components/DescriptionComponent.vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import ImageComponent from "./components/ImageComponent.vue";
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap"
+import { ref } from "vue";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+const name = ref("Miss Z");
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.mid-section {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+  gap: 6em;
+  margin-top: 3em;
 }
+
+/* * {
+  outline: 1px solid;
+} */
 </style>
