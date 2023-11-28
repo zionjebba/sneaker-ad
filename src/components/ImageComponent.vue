@@ -40,20 +40,11 @@ const thumbnails = [image2, image3, image4, image5];
 </script>
 
 <style scoped>
-/* @media (max-width: ) */
 * {
   margin: 0;
   padding: 0;
 }
 
-/* .thumbnail {
-   
-    border-radius: 3px;
-  } */
-
-/* .thumbnails > .col-3 {
-    padding: 5px;
-  } */
 
 .large-image {
   margin-bottom: 50px;

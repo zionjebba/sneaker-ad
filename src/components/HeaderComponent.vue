@@ -139,4 +139,11 @@ a:hover{
 .nav h1{
   font-size: 28px;
 }
+
+@media screen and (max-width: 800px) {
+
+    .header{
+      /* width: 40% */
+    }
+}
 </style>

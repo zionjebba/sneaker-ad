@@ -20,47 +20,50 @@
       </div>
     </div>
 
-      <p id="cancelled">$250.00</p>
-
+    <p id="cancelled">$250.00</p>
 
     <div class="buttons">
-    <div class="counter">
-      <button @click="decrement(); "  style="color: orange; font-weight: 900">
-        -
-      </button>
-      <span style="margin-top: 8px; font-size: 13px; font-weight: bolder">{{
-        count
-      }}</span>
-      <button @click="increment" style="color: orange; font-weight: 900">
-        +
-      </button>
-    </div>
+      <div class="counter">
+        <button @click="decrement()" style="color: orange; font-weight: 900">
+          -
+        </button>
+        <span style="margin-top: 8px; font-size: 13px; font-weight: bolder">{{
+          count
+        }}</span>
+        <button @click="increment" style="color: orange; font-weight: 900">
+          +
+        </button>
+      </div>
 
-    <button class="button" :class="{'button-clicked' : purchased}" @click="togglePurchased">
-      <span style="margin-top: 5px" >
-        <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
-            fill="#69707D"
-            fill-rule="nonzero"
-          />
-        </svg>
-      </span>
-      <span v-if="purchased" style="margin-top: 7px"> Remove </span>
-      <span v-else style="margin-top: 7px"> Add to cart </span>
-    </button>
+      <button
+        class="button"
+        :class="{ 'button-clicked': purchased }"
+        @click="togglePurchased"
+      >
+        <span style="margin-top: 5px">
+          <svg width="22" height="20" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+              fill="#69707D"
+              fill-rule="nonzero"
+            />
+          </svg>
+        </span>
+        <span v-if="purchased" style="margin-top: 7px"> Remove </span>
+        <span v-else style="margin-top: 7px"> Add to cart </span>
+      </button>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { useStore } from '../productStore';
+import { ref } from "vue";
+import { useStore } from "../productStore";
 
 const productState = useStore();
 
-let count = ref(0)
-let purchased = ref(false)
+let count = ref(0);
+let purchased = ref(false);
 
 const increment = () => {
   count.value++;
@@ -70,9 +73,8 @@ const decrement = () => {
   count.value--;
 };
 
-
-function togglePurchased(){
-  purchased.value = !purchased.value
+function togglePurchased() {
+  purchased.value = !purchased.value;
   productState.purchased = 1;
 
   if (purchased.value) {
@@ -139,12 +141,11 @@ function togglePurchased(){
   color: grey;
   margin-top: -20px;
   margin-bottom: 10px;
-
 }
 
-.buttons{
-    display: flex;
-    gap: 10px;
+.buttons {
+  display: flex;
+  gap: 10px;
 }
 .button {
   background: orange;
@@ -177,8 +178,6 @@ svg {
   border-radius: 5px;
 
   font-size: 13px;
-
-
 }
 
 .counter {
@@ -198,7 +197,7 @@ svg {
 }
 
 .description-component {
-    /* align-self: flex-end; */
-    margin-top: 3em;
+  /* align-self: flex-end; */
+  margin-top: 3em;
 }
 </style>
